@@ -1,7 +1,6 @@
 alert('Hello world');
 
 let favoriteFood = 'Avocado Pasta';
-
 document.write(favoriteFood);
 favoriteFood = 'Chicken Soup';
 document.write(favoriteFood);
