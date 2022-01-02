@@ -1,11 +1,10 @@
 alert('Hello world');
 
-let age = 20;
-let myName = 'Rabia';
+let favoriteFood = 'Avocado Pasta';
 
-document.write(my_Name);
-myName = 'Rabia Turkyilmaz';
-document.write(my_Name);
+document.write(favoriteFood);
+favoriteFood = 'Chicken Soup';
+document.write(favoriteFood);
 
 let title = 'this is the title';
 
