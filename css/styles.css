@@ -1,0 +1,36 @@
+:root {
+  --background: #ebd5d5 ;
+  --textcolor: #685454 ;
+  --Primary-color: #f66767 ;
+  --Secondary-Color: #ea8a8a ; 
+  --font-weight-h: 600;
+  --font-weight-regular-text: 200;
+}
+
+body {
+  font-family: 'Didot', serif;
+  font-style: oblique;
+  font-weight: 200;
+  line-height: 1.5;
+  font-size: 16px;
+  width: 1200px;
+  min-width: 370px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+h1{
+font-size: 30px;
+font-weight: var(--font-weight-h);
+background-color: var(--background);
+color: #ea8a8a;
+display: flex;
+min-width: 370px;
+max-width: 700px;
+padding: 30px;
+}
+
+.div-pokemon-list {
+  background-color: var(--background);
+  color: var(--textcolor);
+}

@@ -4,6 +4,8 @@ let pokemonList = [
   { name: 'Roselia', type: ['grass', 'poison'], height: 30.48, pokedexNumber:'#315'}
 ];
 
+
+
 for (let i = 0; i < pokemonList.length; i++ ) {
   document.write('<br>' + pokemonList[i].name + (' (height)') + pokeminList[i].height + ') ');
 if (pokeminList[i].height < 35  && pokeminList.height > 0) ;
