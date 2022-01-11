@@ -8,16 +8,17 @@ let pokemonList = [
 
 for (let i = 0; i < pokemonList.length; i++ ) {
   document.write('<br>' + pokemonList[i].name + (' (height)') + pokeminList[i].height  ) ;
-if (pokeminList[i].height < 35  && pokeminList.height > 0) ;
+if (pokeminList[i].height < 35  && pokeminList.height > 0) {
 // Roselia's height 
-{document.write(' She is a small baddie.');
+document.write(' She is a small baddie.');
 }
-else if (pokeminList[i].height < 60 && pokeminList.height > 36 );
-{ document.write(' This buddy here is a midsize Pokemon');
+else if (pokeminList[i].height < 60 && pokeminList.height > 36 ) {
+   document.write(' This buddy here is a midsize Pokemon');
 // Squrtile's height
 }
-else (pokemonList[i].height > 150)
 { document.write (' Our friend here is human size; maddive isn\t it!? ' )
+else (pokemonList[i].height > 150) {
+   document.write (' Our friend here is human size; maddive isn\t it!? ' )
 // Slowbro's height
 }
 }
