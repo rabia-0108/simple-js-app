@@ -16,7 +16,6 @@ else if (pokeminList[i].height < 60 && pokeminList.height > 36 ) {
    document.write(' This buddy here is a midsize Pokemon');
 // Squrtile's height
 }
-{ document.write (' Our friend here is human size; maddive isn\t it!? ' )
 else (pokemonList[i].height > 150) {
    document.write (' Our friend here is human size; maddive isn\t it!? ' )
 // Slowbro's height
