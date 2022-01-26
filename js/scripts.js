@@ -4,13 +4,13 @@ let pokemonList = [
 { name: 'Roselia', type: ['grass', 'poison'], height: 30.48, pokedexNumber:'#315'}
 ];
 
-for (let i = 0; i < pokemonList.length; i++ ) {
-document.write('<br>' + pokemonList[i].name + (' (height)') + pokemonList[i].height ) ;
-if (pokemonList[i].height < 35 && pokemonList[i].height > 0) {
+pokemonList.forEach(function(pokemon) {
+document.write('<br>' + pokemon.name + (' (height)') + pokemon.height ) ;
+if (pokemon.height < 35 && pokemon.height > 0) {
 // Roselia's height
 document.write(' She is a small baddie.');
 }
-else if (pokemonList[i].height < 60 && pokemonList[i].height > 36 ) {
+else if (pokemon.height < 60 && pokemon.height > 36 ) {
 document.write(' This buddy here is a midsize Pokemon');
 // Squrtile's height
 }
@@ -18,4 +18,20 @@ else{
 // Slowbro's height
 document.write(' This buddy here is a massive Pokemon');
 }
-}
+});
+
+let pokemonRepository = (function() {
+  let pokemonList = []; //empty array
+  
+    function add(pokemon) {
+      pokemonList.push(pokemon);
+    }
+    function getAll() {
+      return pokemonList;
+    }
+    return {
+      add: add,
+      getAll: getAll
+    };
+})();
+
