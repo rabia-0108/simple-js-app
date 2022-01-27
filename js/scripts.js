@@ -1,10 +1,24 @@
-let pokemonList = [
-{ name:'Squirtle', type: ['water'], height: 50.8, pokedexNumber:'#07' },
-{ name:'Slowbro', type:['water', 'psychic'], height: 152.5, pokedexNumber:'#80' },
-{ name: 'Roselia', type: ['grass', 'poison'], height: 30.48, pokedexNumber:'#315'}
+let pokemonRepository = (function() {
+  let pokemonList = [
+  { name:'Squirtle', type: ['water'], height: 50.8, pokedexNumber:'#07' },
+  { name:'Slowbro', type:['water', 'psychic'], height: 152.5, pokedexNumber:'#80' },
+  { name: 'Roselia', type: ['grass', 'poison'], height: 30.48, pokedexNumber:'#315'}
 ];
+  
+    function add(pokemon) {
+      pokemonList.push(pokemon);
+    }
+    function getAll() {
+      return pokemonList;
+    }
+    return {
+      add: add,
+      getAll: getAll
+    };
+})();
 
-pokemonList.forEach(function(pokemon) {
+//calling the respository and getAll unctions here
+pokemonRepository.getAll().forEach(function(pokemon) {
 document.write('<br>' + pokemon.name + (' (height)') + pokemon.height ) ;
 if (pokemon.height < 35 && pokemon.height > 0) {
 // Roselia's height
@@ -19,19 +33,3 @@ else{
 document.write(' This buddy here is a massive Pokemon');
 }
 });
-
-let pokemonRepository = (function() {
-  let pokemonList = []; //empty array
-  
-    function add(pokemon) {
-      pokemonList.push(pokemon);
-    }
-    function getAll() {
-      return pokemonList;
-    }
-    return {
-      add: add,
-      getAll: getAll
-    };
-})();
-
