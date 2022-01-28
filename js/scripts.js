@@ -11,25 +11,36 @@ let pokemonRepository = (function() {
     function getAll() {
       return pokemonList;
     }
+    function addListItem(pokemon) {
+      let listItem = document.createElement('li');
+      let button = document.createElement('button');
+      button.innerHTML = pokemon.name; // text inside the button
+      button.classList.add('btn'); //adding a classlist for the button
+      listItem.appendChild(button);
+      list.appendChild(listItem);
+      
+      button.addEventListener("Click me", (event) {
+        showDetails(pokemon);
+      });
+    }
     return {
       add: add,
       getAll: getAll
     };
+
 })();
 
 //calling the respository and getAll unctions here
 pokemonRepository.getAll().forEach(function(pokemon) {
-document.write('<br>' + pokemon.name + (' (height)') + pokemon.height ) ;
 if (pokemon.height < 35 && pokemon.height > 0) {
-// Roselia's height
-document.write(' She is a small baddie.');
+
 }
 else if (pokemon.height < 60 && pokemon.height > 36 ) {
-document.write(' This buddy here is a midsize Pokemon');
-// Squrtile's height
+
 }
 else{
-// Slowbro's height
-document.write(' This buddy here is a massive Pokemon');
+
 }
 });
+
+
