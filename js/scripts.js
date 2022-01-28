@@ -12,12 +12,13 @@ let pokemonRepository = (function() {
       return pokemonList;
     }
     function addListItem(pokemon) {
-      let listItem = document.createElement('li');
-      let button = document.createElement('button');
-      button.innerHTML = pokemon.name; // text inside the button
+      let pokemonList = document.querySelector (".pokemon-list");
+      let listpokemon = document.createElement("li");
+      let button = document.createElement("button");
+      button.innerText = pokemon.name; // text inside the button
       button.classList.add('btn'); //adding a classlist for the button
-      listItem.appendChild(button);
-      list.appendChild(listItem);
+      listpokemon.appendChild(button);
+      pokemonList.appendChild(listpokemon);
       
       button.addEventListener("Click me", (event) {
         showDetails(pokemon);
@@ -25,22 +26,22 @@ let pokemonRepository = (function() {
     }
     return {
       add: add,
-      getAll: getAll
+      getAll: getAll,
+      addListItem: addListItem
     };
 
 })();
 
+console.log(pokemonRepository.getAll());
 //calling the respository and getAll unctions here
 pokemonRepository.getAll().forEach(function(pokemon) {
-if (pokemon.height < 35 && pokemon.height > 0) {
-
-}
-else if (pokemon.height < 60 && pokemon.height > 36 ) {
-
-}
-else{
-
-}
+  let pokemonList = document.querySelector (".pokemon-list");
+  let listpokemon = document.createElement("li");
+  let button = document.createElement("button");
+  button.innerText = pokemon.name; // text inside the button
+  button.classList.add('btn'); //adding a classlist for the button
+  listpokemon.appendChild(button);
+  pokemonList.appendChild(listpokemon);
 });
 
 
