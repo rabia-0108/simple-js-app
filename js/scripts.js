@@ -17,10 +17,6 @@ function add(pokemon) {
 
 function getAll() {
 return pokemonList;
-}
-
-function showDetails(pokemon) {
-console.log(pokemon)
 };
 
 function addListItem(pokemon) {
@@ -32,8 +28,8 @@ button.classList.add('btn'); //adding a classlist for the button
 listpokemon.appendChild(button);
 pokemonList.appendChild(listpokemon);
 
-button.addEventListener("click", (event) => {
-showDetails(pokemon)
+button.addEventListener("click", function(event) => {
+showDetails(pokemon);
 });
 }
 
@@ -48,6 +44,7 @@ function loadList() {
         detailsUrl: item.url
       };
       add(pokemon);
+      console.log(pokemon);
     });
   }).catch(function (e) {
     console.error(e);
@@ -68,11 +65,19 @@ function loadList() {
     });
   }
 
+  function showDetails(pokemon) {
+    loadDetails(pokemon).then(function)(){
+      console.log(pokemon);
+    });
+  }
+
   return {
     add: add,
     getAll: getAll,
+    addListItem: addListItem,
     loadList: loadList,
-    loadDetails: loadDetails
+    loadDetails: loadDetails,
+    showDetails: showDetails
   };
 })();
 
