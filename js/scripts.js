@@ -1,6 +1,7 @@
 let pokemonRepository = (function() {
   let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  let modalContainer = document.querySelector(".modal-container");
 
 
 function add(pokemon) {
@@ -18,6 +19,7 @@ function add(pokemon) {
 function getAll() {
 return pokemonList;
 };
+
 
 function addListItem(pokemon) {
 let pokemonList = document.querySelector (".pokemon-list");
@@ -67,17 +69,52 @@ function loadList() {
 
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function(){
-      console.log(pokemon);
+      showModal(pokemon);
     });
   }
 
+  function showModal(name, height, image) {
+    document.querySelector('#show-modal').addEventListener('click', () => {
+      showModal();
+
+      //Generate a close button
+            let closeButtonElement = document.createElement('button');
+            closeButtonElement.classList.add('modal-close');
+            closeButtonElement.innerText = 'Close';
+            closeButtonElement.addEventListener('click', hideModal);
+
+
+       let titleElement = document.createElement('h1');
+           titleElement.innerText = name;
+
+       let contentElement = document.createElement('p');
+           contentElement.innerText = "Height: " + height;
+
+       let imageElement = document.createElement('img');
+             imageElement.classList.add('pokemon-image-class');
+             imageElement.src = image;
+
+      modal.appendChild(pokemonName);
+      modal.appendChild(pokemonImage);
+      modal.appendChild(pokemonHeight);
+      modalContainer.appendChild(modal);
+      modalContainer.classList.add('is-visible');
+    }
+
+    function hideModal() {
+      let modalContainer = document.querySelector('#modal-container');
+      modalContainer.classList.remove('is-visible');
+      }
+      
+  }
   return {
     add: add,
     getAll: getAll,
     addListItem: addListItem,
     loadList: loadList,
     loadDetails: loadDetails,
-    showDetails: showDetails
+    showDetails: showDetails,
+    showModal: showModal,
   };
 })();
 
