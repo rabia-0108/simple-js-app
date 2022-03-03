@@ -2,7 +2,7 @@
   --background: #ebd5d5 ;
   --textcolor: #685454 ;
   --primarycolor: #f66767 ;
-  --secondarycolor: #ea8a8a ; 
+  --secondarycolor: #ea8a8a ;
   --font-weight-h: 600;
   --font-weight-regular-text: 200;
   --fontfamily: 'Didot', serif;
@@ -36,18 +36,23 @@ padding: 30px;
   color: var(--textcolor);
 }
 
-.btn {
+.button {
   border: none;
   font-family: inherit;
   background-color: var(--primarycolor);
-  color: var(--textcolor);  
+  color: var(--textcolor);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 
 .pokemon-list ul {
   font-family: 'Didot', serif;
 }
 
-.pokemon-list { 
+.pokemon-list {
   margin: auto;
   display: flex;
   justify-content: center;
@@ -55,4 +60,46 @@ padding: 30px;
   align-items: center;
   flex-wrap: wrap;
   text-align: center;
+}
+
+#modal-container {
+  position: fixed;
+  padding: 25px;
+  box-sizing: border-box;
+  top: auto;
+  left: auto;
+  width: 100%;
+  height: 100%;
+
+
+  /* this is used to center the modal */
+  display: grid;
+  text-align: center;
+
+  /* to show it above other content */
+  z-index: 999;
+
+  /* to allow scrolling if the screen is not high enough*/
+ overflow: auto;
+}
+
+.modal {
+  margin: auto;
+  display: inline-block;
+  box-sizing: border-box;
+  background: #f66767;
+  padding: 20px;
+  width: 100%;
+  max-width: 700px;
+  text-align: left;
+}
+
+
+#modal-container {
+  display: none;
+}
+
+#modal-container.is-visible {
+  /* CSS for modal container - add your own desired CSS styles here */
+  display: block;
 }
