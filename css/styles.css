@@ -64,7 +64,7 @@ padding: 30px;
 
 #modal-container {
   position: fixed;
-  padding: 25px;
+  padding: 50x;
   box-sizing: border-box;
   top: auto;
   left: auto;
@@ -87,7 +87,7 @@ padding: 30px;
   margin: auto;
   display: inline-block;
   box-sizing: border-box;
-  background: #f66767;
+  background: #ebd5d5;
   padding: 20px;
   width: 100%;
   max-width: 700px;
