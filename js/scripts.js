@@ -74,63 +74,6 @@ function showModal(pokemon) { // passing the correct parameter
   let modal = document.querySelector('#modal-container'); //fetch the modal container
 
 
-  //sorts pokemon in numerical descending/ascending or alphabtical A-Z/Z-A order
-    function sort() {
-      let value = document.getElementById("options").value;
-      let listBeforeSort = [];
-
-      if (value === "Descending") {
-        $(".pokemon-list").empty();
-        repository.forEach((pokemon) => {
-          addListItem(pokemon, value);
-        });
-      } else if (value === "Ascending") {
-        $(".pokemon-list").empty();
-        repository.forEach((pokemon) => {
-          addListItem(pokemon, value);
-        });
-      } else if (value === "A-Z") {
-        $(".pokemon-list").empty();
-        for (i = 0; i < repository.length; i++) {
-          listBeforeSort.push(repository[i]);
-        }
-        listBeforeSort.sort(dynamicSort("name"));
-        listBeforeSort.forEach((pokemon) => {
-          addListItem(pokemon, value);
-        });
-      } else if (value === "Z-A") {
-        $(".pokemon-list").empty();
-        for (i = 0; i < repository.length; i++) {
-          listBeforeSort.push(repository[i]);
-        }
-        listBeforeSort.sort(dynamicSort("name"));
-        let finalList = listBeforeSort.reverse();
-        finalList.forEach((pokemon) => {
-          addListItem(pokemon);
-        });
-      }
-    }
-
-    //alphabeical sorter
-    function dynamicSort(property) {
-      var sortOrder = 1;
-
-      if (property[0] === "-") {
-        sortOrder = -1;
-        property = property.substr(1);
-      }
-
-      return function (a, b) {
-        if (sortOrder == -1) {
-          return b[property].localeCompare(a[property]);
-        } else {
-          return a[property].localeCompare(b[property]);
-        }
-      };
-    }
-
-
-
 //Generate a close button
 let closeButtonElement = document.createElement('button');
 closeButtonElement.classList.add('modal-close');
@@ -188,3 +131,58 @@ pokemonRepository.getAll().forEach(function(pokemon) {
 pokemonRepository.addListItem(pokemon);
 });
 });
+
+//sorts pokemon in numerical descending/ascending or alphabtical A-Z/Z-A order
+  function sort() {
+    let value = document.getElementById("options").value;
+    let listBeforeSort = [];
+
+    if (value === "Descending") {
+      $(".pokemon-list").empty();
+      repository.forEach((pokemon) => {
+        addListItem(pokemon, value);
+      });
+    } else if (value === "Ascending") {
+      $(".pokemon-list").empty();
+      repository.forEach((pokemon) => {
+        addListItem(pokemon, value);
+      });
+    } else if (value === "A-Z") {
+      $(".pokemon-list").empty();
+      for (i = 0; i < repository.length; i++) {
+        listBeforeSort.push(repository[i]);
+      }
+      listBeforeSort.sort(dynamicSort("name"));
+      listBeforeSort.forEach((pokemon) => {
+        addListItem(pokemon, value);
+      });
+    } else if (value === "Z-A") {
+      $(".pokemon-list").empty();
+      for (i = 0; i < repository.length; i++) {
+        listBeforeSort.push(repository[i]);
+      }
+      listBeforeSort.sort(dynamicSort("name"));
+      let finalList = listBeforeSort.reverse();
+      finalList.forEach((pokemon) => {
+        addListItem(pokemon);
+      });
+    }
+  }
+
+  //alphabeical sorter
+  function dynamicSort(property) {
+    var sortOrder = 1;
+
+    if (property[0] === "-") {
+      sortOrder = -1;
+      property = property.substr(1);
+    }
+
+    return function (a, b) {
+      if (sortOrder == -1) {
+        return b[property].localeCompare(a[property]);
+      } else {
+        return a[property].localeCompare(b[property]);
+      }
+    };
+  }
